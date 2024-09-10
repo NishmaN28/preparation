@@ -59,14 +59,15 @@ public class Solution {
         }
        count=0;
        for(i=0;i<N;i++)
+       {
         if(k==A.get(i))
         {
           count++;
         }
+       }
         if(count>N/2)
            return k;
         else
            throw new IllegalStateException("No majority element found");
     }
 }
-
