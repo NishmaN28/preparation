@@ -35,28 +35,38 @@ Example Explanation
 
 
   PROGRAM:
+import java.io.*;
 public class Solution {
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
     public int majorityElement(final List<Integer> A) {
-        int i,j=0,count=1,k;
+        int i, j=0,count=1,k;
         k=A.get(0);
         int N=A.size();
-        for(i=0;i<N;i++){
-            for(j=0;j<N;j++){
-                    if(A.get(i)==A.get(j)){
-                        count++;
-                    }
-                    else{
-                        count--;
-                        if(count==0){
-                            k=A.get(i);
-                            count=1;
-                        }
-                    }
-                
-                
+        for(i=0;i<N;i++)
+        {
+            if(k==A.get(i))
+            {
+                count++;
+            }
+            else
+            {
+                count--;
+                if(count==0){
+                    k=A.get(i);
+                    count=1;
+                }
             }
         }
-        return k;
+       count=0;
+       for(i=0;i<N;i++)
+        if(k==A.get(i))
+        {
+          count++;
+        }
+        if(count>N/2)
+           return k;
+        else
+           throw new IllegalStateException("No majority element found");
     }
 }
+
